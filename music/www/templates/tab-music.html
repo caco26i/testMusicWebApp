@@ -1,13 +1,13 @@
-<ion-view view-title="music">
+<ion-view view-title="Top 10 Music">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="song in music" type="item-text-wrap" href="#/tab/music/{{song.id}}">
-        <img ng-src="{{song.face}}">
-        <h2>{{song.name}}</h2>
-        <p>{{song.lastText}}</p>
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="track in music" type="item-text-wrap" href="#/tab/music/{{track.idTrack}}">
+        <img ng-src="{{track.strTrackThumb}}">
+        <h2>{{track.strTrack}}</h2>
+        <p>{{track.strDescriptionEN}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(song)">
+        <ion-option-button class="button-assertive" ng-click="remove(track)">
           Delete
         </ion-option-button>
       </ion-item>

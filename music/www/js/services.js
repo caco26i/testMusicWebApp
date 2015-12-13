@@ -8,39 +8,39 @@ angular.module('starter.services', [])
     id: 0,
     name: 'Ben Sparrow',
     lastText: 'You on your way?',
-    face: 'img/ben.png'
+    cover: 'img/ben.png'
   }, {
     id: 1,
     name: 'Max Lynx',
     lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
+    cover: 'img/max.png'
   }, {
     id: 2,
     name: 'Adam Bradleyson',
     lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
+    cover: 'img/adam.jpg'
   }, {
     id: 3,
     name: 'Perry Governor',
     lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    cover: 'img/perry.png'
   }, {
     id: 4,
     name: 'Mike Harrington',
     lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    cover: 'img/mike.png'
   }];
 
   return {
     all: function() {
       return music;
     },
-    remove: function(song) {
-      music.splice(music.indexOf(song), 1);
+    remove: function(track) {
+      music.splice(music.indexOf(track), 1);
     },
-    get: function(songId) {
+    get: function(trackId) {
       for (var i = 0; i < music.length; i++) {
-        if (music[i].id === parseInt(songId)) {
+        if (music[i].id === parseInt(trackId)) {
           return music[i];
         }
       }

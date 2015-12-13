@@ -6,9 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-var app = angular.module('sampleApp', ['firebase']);
-
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase'])
 .run(function($ionicPlatform){
   $ionicPlatform.ready(function(){
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -46,16 +44,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-music': {
           templateUrl: 'templates/tab-music.html',
-          controller: 'musicCtrl'
+          controller: 'SampleCtrl'
         }
       }
   })
-  .state('tab.song-detail', {
-    url: '/music/:songId',
+  .state('tab.track-detail', {
+    url: '/music/:trackId',
     views: {
       'tab-music': {
-        templateUrl: 'templates/song-detail.html',
-        controller: 'songDetailCtrl'
+        templateUrl: 'templates/track-detail.html',
+        controller: 'trackDetailCtrl'
       }
     }
   })
@@ -64,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'SampleCtrl'
       }
     }
   });

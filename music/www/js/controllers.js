@@ -12,22 +12,32 @@ angular.module('starter.controllers', [])
   //});
 
   $scope.music = music.all();
-  $scope.remove = function(song){
-    music.remove(song);
+  $scope.remove = function(track){
+    music.remove(track);
   };
 })
 
-.controller('songDetailCtrl', function($scope, $stateParams, music){
-  $scope.song = music.get($stateParams.songId);
+.controller('trackDetailCtrl', function($scope, $stateParams, $firebaseArray){
+    var $key = function(){ return Object.keys($stateParams)[0] };
+    var $value = function(){ return $stateParams[$key()] };
+
+    console.log($key())
+    console.log($value())
+
+    var ref = new Firebase("https://torrid-heat-7630.firebaseio.com/track");
+    ref.orderByChild($key()).equalTo($value())
+    
+    console.log($firebaseArray(ref))
 })
 
-.controller('AccountCtrl', function($scope){});
+.controller('AccountCtrl', function($scope){})
 
-app.controller("SampleCtrl", function($scope, $firebaseObject) {
-  var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+.controller("SampleCtrl", function($scope, $firebaseArray) {
+  var ref = new Firebase("https://torrid-heat-7630.firebaseio.com/track");
 
   // download the data into a local object
-  $scope.data = $firebaseObject(ref);
-
+  $scope.music = $firebaseArray(ref);
+  console.log($scope.music)
+  topmusic = $firebaseArray(ref);
   // putting a console.log here won't work, see below
 });
