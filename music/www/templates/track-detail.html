@@ -6,30 +6,45 @@
 -->
 <ion-view view-title="{{track[0].strTrack}}">
   <ion-content class="padding">
-    <div class="item item-image">
-      <img ng-src="{{track[0].strTrackThumb}}" style="width: 64px; height: 64px">
+    <div class="row responsive-sm">
+      <div class="col-33 padding"> <!-- COVER IMG -->
+        <div class="item item-image">
+          <img ng-src="{{track[0].strTrackThumb}}">
+        </div>
+      </div>
+      
+      <div class="col-33 padding">  <!-- DATA TRACK -->
+        <div class="list">
+          <label class="item item-input">
+            <strong class="input-label">Track </strong>
+            <input type="text" value="{{track[0].strTrack}}" ng-model="track[0].strTrack" ng-change="editField(track[0])">
+          </label>
+          
+          <label class="item item-input">
+            <strong class="input-label">Artist </strong>
+            <input type="text" value="{{track[0].strArtist}}" ng-model="track[0].strArtist" ng-change="editField(track[0])">
+          </label>
+          
+          <label class="item item-input">
+            <strong class="input-label">Album </strong>
+            <input type="text" value="{{track[0].strAlbum}}" ng-model="track[0].strAlbum" ng-change="editField(track[0])">
+          </label>
+          
+          <label class="item item-input">
+            <strong class="input-label">Genre </strong>
+            <input type="text" value="{{track[0].strGenre}}" ng-model="track[0].strGenre" ng-change="editField(track[0])">
+          </label>
+        </div>
+      </div>
+      
+      <div class="col-33 padding"> <!-- DESCRIPTION -->
+        <label class="item item-input item-stacked-label">
+          <strong class="input-label">Description</strong>
+          <textarea rows="10" cols="40" ng-model="track[0].strDescriptionEN" ng-change="editField(track[0])">{{track[0].strDescriptionEN}}</textarea>
+        </label>
+      </div>
     </div>
     
-    <div class="list">
-      <label class="item item-input">
-        <strong class="input-label">Track </strong>
-        <input type="text" value="{{track[0].strTrack}}">
-      </label>
-      
-      <label class="item item-input">
-        <strong class="input-label">Artist </strong>
-        <input type="text" value="{{track[0].strArtist}}">
-      </label>
-      
-      <label class="item item-input">
-        <strong class="input-label">Album </strong>
-        <input type="text" value="{{track[0].strAlbum}}">
-      </label>
-      
-      <label class="item item-input">
-        <strong class="input-label">Genre </strong>
-        <input type="text" value="{{track[0].strGenre}}">
-      </label>
-    </div>
+    
   </ion-content>
 </ion-view>

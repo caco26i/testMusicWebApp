@@ -21,14 +21,24 @@ angular.module('webMusicApp.controllers', [])
     var $key =    function(){ return String(Object.keys($stateParams)[0]) };  //Se obtiene el key por medio del metodo de Object
     var $value =  function(){ return String($stateParams[$key()]) };          //Se obtiene el value por medio del key
 
-    console.log("DEBUG trackDetailCtrl key: " + $key())
-    console.log("DEBUG trackDetailCtrl value: " + $value())
+    console.log("DEBUG trackDetailCtrl key: " + $key());
+    console.log("DEBUG trackDetailCtrl value: " + $value());
     
-    $scope.track =  music.get($key(), $value())
+    $scope.track =  music.get($key(), $value());
   
-    console.log("TRACK")
-    console.log($scope.track)
-    // create a query for the most recent 25 messages on the server
+    console.log("DEBUG TRACK: " + $scope.track);
+
+    $scope.editField = function($track) {
+      console.log("DEBUG $scope.editField, $track: " + $track);
+      
+      var output = '';
+      for (var property in $track) {
+        output += property + ': ' + $track[property]+'; ';
+      }
+      console.log(output);
+      $scope.track.$save( $track );
+    };
+
 })
 
 .controller('AccountCtrl', function($scope){})
