@@ -26,7 +26,7 @@
   },
   "license": "MIT",
   "repository": "https://github.com/angular/angular-seed",
-  "description": "A starter project for AngularJS",
+  "description": "A webMusicApp project for AngularJS",
   "version": "0.0.0",
   "private": true,
   "name": "angular-seed"

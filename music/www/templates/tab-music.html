@@ -4,10 +4,11 @@
       <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="track in music" type="item-text-wrap" href="#/tab/music/{{track.idTrack}}">
         <img ng-src="{{track.strTrackThumb}}">
         <h2>{{track.strTrack}}</h2>
-        <p>{{track.strDescriptionEN}}</p>
+        <p><strong>Artist</strong> {{track.strArtist}}</p>
+        <p><strong>Album</strong> {{track.strAlbum}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(track)">
+        <ion-option-button class="button-assertive" ng-click="remove(track[0])">
           Delete
         </ion-option-button>
       </ion-item>

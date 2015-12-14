@@ -1,14 +1,14 @@
 <!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
+  This template loads for the 'tab.track-detail' state (app.js)
+  'track' is a $scope variable created in the trackDetailCtrl controller (controllers.js)
+  The trackDetailCtrl pulls data from the music service (service.js)
+  The music service returns an array of tracks data
 -->
-<ion-view view-title="{{track.strTrack}}">
+<ion-view view-title="{{track[0].strTrack}}">
   <ion-content class="padding">
-    <img ng-src="{{track.strTrackThumb}}" style="width: 64px; height: 64px">
-    <p>
-      {{track.strDescriptionEN}}
+    <img ng-src="{{track[0].strTrackThumb}}" style="width: 64px; height: 64px">
+    <p ng-repeat="field in track[0]">
+      {{field[0]}}
     </p>
   </ion-content>
 </ion-view>

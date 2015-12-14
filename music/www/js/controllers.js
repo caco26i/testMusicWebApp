@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('webMusicApp.controllers', [])
 
 .controller('DashCtrl', function($scope){})
 
@@ -17,27 +17,25 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('trackDetailCtrl', function($scope, $stateParams, $firebaseArray){
-    var $key = function(){ return Object.keys($stateParams)[0] };
-    var $value = function(){ return $stateParams[$key()] };
+.controller('trackDetailCtrl', function($scope, $stateParams, music){
+    var $key =    function(){ return String(Object.keys($stateParams)[0]) };  //Se obtiene el key por medio del metodo de Object
+    var $value =  function(){ return String($stateParams[$key()]) };          //Se obtiene el value por medio del key
 
-    console.log($key())
-    console.log($value())
-
-    var ref = new Firebase("https://torrid-heat-7630.firebaseio.com/track");
-    ref.orderByChild($key()).equalTo($value())
+    console.log("DEBUG trackDetailCtrl key: " + $key())
+    console.log("DEBUG trackDetailCtrl value: " + $value())
     
-    console.log($firebaseArray(ref))
+    $scope.track =  music.get($key(), $value())
+  
+    console.log("TRACK")
+    console.log($scope.track)
+    // create a query for the most recent 25 messages on the server
 })
 
 .controller('AccountCtrl', function($scope){})
 
-.controller("SampleCtrl", function($scope, $firebaseArray) {
-  var ref = new Firebase("https://torrid-heat-7630.firebaseio.com/track");
-
+.controller("SampleCtrl", function($scope, music) {
   // download the data into a local object
-  $scope.music = $firebaseArray(ref);
-  console.log($scope.music)
-  topmusic = $firebaseArray(ref);
-  // putting a console.log here won't work, see below
+  $scope.music = music.all();
+  
+  console.log("DEBUG All Music: " + $scope.music);
 });
